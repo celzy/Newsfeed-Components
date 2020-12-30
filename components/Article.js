@@ -114,3 +114,82 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker(data) {
+  let div = document.createElement("div");
+  div.classList.add("article");
+  let h2 = document.createElement("h2");
+  h2.textContent = data.title;
+
+  let pDate = document.createElement("p");
+  pDate.classList.add("date");
+  pDate.textContent = data.date;
+
+  let p1 = document.createElement("p");
+  p1.textContent = data.firstParagraph;
+  let p2 = document.createElement("p");
+  p2.textContent = data.secondParagraph;
+  let p3 = document.createElement("p");
+  p3.textContent = data.thirdParagraph;
+
+  let spn = document.createElement("span");
+  spn.classList.add("expandbutton");
+  spn.textContent = "+";
+
+  spn.addEventListener("click", () => {
+    div.classList.toggle("article-open")
+  })
+ 
+  let container = document.querySelector(".articles");
+  container.appendChild(div);
+  div.appendChild(h2)
+  div.appendChild(pDate)
+  div.appendChild(p1)
+  div.appendChild(p2)
+  div.appendChild(p3)
+  div.appendChild(spn)
+  
+}
+
+
+articleMaker(data[1]);
+
+data.forEach((item) => {
+  let div = document.createElement('div');
+  div.classList.add("article");
+  let h2 = document.createElement("h2");
+  h2.textContent = item.title;
+  let pDate = document.createElement("p");
+  pDate.classList.add("date");
+  pDate.textContent = item.date;
+  let p1 = document.createElement("p");
+  p1.textContent = item.firstParagraph;
+  let p2 = document.createElement("p");
+  p2.textContent = item.secondParagraph;
+  let p3 = document.createElement("p");
+  p3.textContent = item.thirdParagraph;
+  let spn = document.createElement("span");
+  spn.classList.add("expandButton");
+  spn.textContent = "+";
+  spn.addEventListener("click", function(){
+    div.classList.toggle("article-open");
+  })
+  let container = document.querySelector(".articles");
+  container.appendChild(div);
+  div.appendChild(h2);
+  div.appendChild(pDate);
+  div.appendChild(p1);
+  div.appendChild(p2);
+  div.appendChild(p3);
+  div.appendChild(spn);
+})
+
+var lastStep = {
+  title: 'Cortez',
+  date: 'Jul 10, 1996',
+  firstParagraph: 'hello good people',
+  secondParagraph: 'i am writing this to inform you',
+  thirdParagraph: 'that this exercise is completed'
+
+}
+articleMaker(lastStep);
